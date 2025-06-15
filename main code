@@ -1,0 +1,23 @@
+import random
+import string
+
+print("Random Password Generator")
+length = int(input("Enter password length: "))
+
+letters = input("Include letters? (y/n): ").lower() == 'y'
+numbers = input("Include numbers? (y/n): ").lower() == 'y'
+symbols = input("Include symbols? (y/n): ").lower() == 'y'
+
+chars = ""
+if letters:
+    chars += string.ascii_letters
+if numbers:
+    chars += string.digits
+if symbols:
+    chars += string.punctuation
+
+if chars == "":
+    print("No character types selected. Exiting.")
+else:
+    password = "".join(random.choice(chars) for _ in range(length))
+    print("Your password is:", password)
